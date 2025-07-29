@@ -1,0 +1,114 @@
+/* General & Dark Mode Theme */
+:root {
+    --primary-color: #e50914;
+    --dark-bg: #141414;
+    --card-bg: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-color: #303030;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Header & Nav */
+.main-header {
+    background-color: var(--card-bg);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.logo { font-size: 1.5em; font-weight: bold; }
+.main-nav a, .user-nav a { margin-left: 15px; }
+
+/* Main Container & Video Grid */
+.main-container, .admin-container, .watch-container, .auth-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+.video-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+.video-card:hover { transform: scale(1.03); }
+.video-thumbnail { width: 100%; display: block; }
+.video-card-info { padding: 15px; }
+.video-card-title { font-size: 1.1em; margin: 0 0 5px 0; color: var(--text-primary); }
+.video-card-uploader, .video-card-views { font-size: 0.9em; color: var(--text-secondary); }
+
+/* Watch Page */
+.video-player-wrapper {
+    position: relative;
+    background-color: #000;
+}
+#reward-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    z-index: 21; /* Di atas player UI */
+    pointer-events: none; /* Agar tidak mengganggu klik pada video */
+}
+.video-info { margin-top: 20px; }
+.video-title { font-size: 1.8em; }
+.video-meta { display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); }
+.action-btn, .subscribe-btn {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.subscribe-btn { background-color: var(--primary-color); border: none; }
+
+/* Auth Forms */
+.auth-container { max-width: 400px; }
+.auth-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+}
+.auth-form h2 { text-align: center; }
+.auth-form input, .auth-form select, .auth-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    box-sizing: border-box;
+}
+.auth-form button { background-color: var(--primary-color); border: none; font-weight: bold; cursor: pointer; }
+.auth-switch { text-align: center; color: var(--text-secondary); }
+
+/* Alerts */
+.alert { padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+.alert.success { background-color: #28a745; color: white; }
+.alert.error { background-color: #dc3545; color: white; }
